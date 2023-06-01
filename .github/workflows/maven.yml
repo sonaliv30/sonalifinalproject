@@ -60,7 +60,8 @@ jobs:
 
     - name: Upload artifact to Rekor
       run: |
-          rekor upload --artifact ./hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT --signature sha256-d3b12dab7d1c794fe80d8bf4925a93e10aff3bf1dbf32d953676e726493f8344.sig
+         rekor upload --artifact ./build/hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT 
+
 
 
 
