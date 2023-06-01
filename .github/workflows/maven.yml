@@ -62,7 +62,7 @@ jobs:
     - name: Sign Artifact with Rekor
       run: |
           rekor sign --artifact hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar
-
+   
 
 
 
