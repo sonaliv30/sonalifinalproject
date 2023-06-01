@@ -61,7 +61,10 @@ jobs:
  
     - name: Sign Artifact with Rekor
       run: |
-          rekor sign --artifact hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar
+          gpg --export-secret-keys --armor F5E29F2D8E19807116BC77546472DD6120059526 > private.key
+          gpg --import private.key
+          gpg --detach-sign -a hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar
+          
    
 
 
