@@ -45,10 +45,19 @@ jobs:
 #       run: |
 #           gpg --local-user GPG_PRIVATE_KEY --armor --detach-sign hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar
 
-    - name: Sign Artifact with Rekor
-      run: |
-          rekor upload --artifact hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar \
-            --signature hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar
+#     - name: Sign Artifact with Rekor
+#       run: |
+#           rekor upload --artifact hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar \
+#             --signature hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar
+
+    - name: Upload artifact to Rekor
+      run: rekor upload --artifact hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar
+ 
+      env:
+         JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/11.0.19-7/x64
+         JAVA_HOME_11_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/11.0.19-7/x64
+
+
 
 #     - name: Verify Artifact with Rekor
 #       run: |
