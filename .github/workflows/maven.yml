@@ -48,7 +48,7 @@ jobs:
     - name: Sign Artifact with Rekor
       run: |
           rekor upload --artifact hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar \
-            --signature hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar.asc
+            --signature hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar
 
 #     - name: Verify Artifact with Rekor
 #       run: |
