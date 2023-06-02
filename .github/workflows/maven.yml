@@ -57,17 +57,22 @@ jobs:
 #          JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/11.0.19-7/x64
 #          JAVA_HOME_11_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/11.0.19-7/x64
 
-    - name: Configure GPG Key
-      run: |
-       echo -n "$GPG_PRIVATE_KEY" | base64 --decode | gpg --import
-      env:
-       GPG_SIGNING_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+#     - name: Configure GPG Key
+#       run: |
+#        echo -n "$GPG_PRIVATE_KEY" | base64 --decode | gpg --import
+#       env:
+#        GPG_SIGNING_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
  
     - name: Sign Artifact with Rekor
       run: |
-          gpg --export-secret-keys --armor F5E29F2D8E19807116BC77546472DD6120059526 > private.key
-          gpg --import private.key
-          gpg --detach-sign -a hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar
+       rekor-cli sign --artifact hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar
+
+#           gpg --export-secret-keys --armor F5E29F2D8E19807116BC77546472DD6120059526 > private.key
+#           gpg --import private.key
+#           gpg --detach-sign -a hulk-app9-showtym-devops-backend-0.0.1-SNAPSHOT.jar
+
+
+     
           
    
 
